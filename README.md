@@ -32,7 +32,7 @@ Character Accuracy: 98.06 %
 
 **Developer:** [locusclassicus](https://github.com/locusclassicus)
 <br>
-**Contributors:** The authors sincerely thank everyone who contributed to the project. Special thanks are extended to Anastasia Orlova for her comprehensive support and assistance, and to the students of the Master's program "Russian Literature and Comparative Studies" — Darya Bakharskaya, Aynur Gasanova, Ekaterina Gureeva, Natalia Luzganova, Ekaterina Mozharovskaya, Polina Trofimova, and Elina Chinkina — for their help in preparing the reference data.
+**Contributors:** The authors sincerely thank everyone who contributed to the project. Special thanks are extended to *Anastasia Orlova* for her comprehensive support and assistance, and to the students of the Master's program "Russian Literature and Comparative Studies" — *Darya Bakharskaya, Aynur Gasanova, Ekaterina Gureeva, Natalia Luzganova, Ekaterina Mozharovskaya, Polina Trofimova, and Elina Chinkina* — for their help in preparing the reference data.
 
 
 ## License
