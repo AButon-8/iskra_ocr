@@ -28,17 +28,14 @@ Character Accuracy: 98.06 %
 
 ---
 
-## Лицензия и авторство
+## Acknowledgements
 
-Репозиторий создан на основе данных [Ольги Алиевой](https://github.com/locusclassicus) с разрешением на использование.
-
-Подготовка эталонных данных выполнена с участием студентов магистерской программы «Русская литература и компаративистика».
-
-Научный руководитель: Алиева О.В.
+**Developer:** [locusclassicus](https://github.com/locusclassicus)
+<br>
+**Contributors:** The authors sincerely thank everyone who contributed to the project. Special thanks are extended to Anastasia Orlova for her comprehensive support and assistance, and to the students of the Master's program "Russian Literature and Comparative Studies" — Darya Bakharskaya, Aynur Gasanova, Ekaterina Gureeva, Natalia Luzganova, Ekaterina Mozharovskaya, Polina Trofimova, and Elina Chinkina — for their help in preparing the reference data.
 
 
-
-## 📜 License
+## License
 
 This repository is released under the **Apache License 2.0**,  
 the same open-source license used by the original Tesseract OCR project.  
