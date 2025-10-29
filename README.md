@@ -12,21 +12,31 @@ iskra_ocr/
 └── LICENSE                # License (Apache 2.0) / Лицензия
 ```
 
-## Результаты
-Метрики распознавания дореформенных текстов
+## Results
 
-Micro-CER: 1.94 %
-Средняя доля ошибочных символов по всему корпусу.
+### OCR Performance on Pre-Reform Texts
 
-Macro-CER: 3.09 %
-Средняя доля ошибок по отдельным строкам.
+| Metric                  | Value    | Description |
+|--------------------------|---------|-------------|
+| **Micro-CER**            | 1.94 %  | Average character error across the corpus |
+| **Macro-CER**            | 3.09 %  | Average character error per line |
+| **Character Accuracy**   | 98.06 % | Proportion of correctly recognized characters |
 
-Character Accuracy: 98.06 %
-Процент правильно распознанных символов.
+These results indicate a significant improvement over the standard `rus` model for pre-reform orthography.
 
-Эти показатели демонстрируют, что дообученная модель значительно повышает качество распознавания по сравнению со стандартной моделью rus для дореформенной орфографии.
+### Training Progress
 
----
+| Stage                  | BCER (%)      | BWER (%)      |
+|------------------------|---------------|---------------|
+| Initial iterations     | 22.5 – 28.1   | 41 – 54.5     |
+| Mid checkpoints        | 4.2 – 5.4     | 8.6 – 10.6    |
+| Final iterations       | 5.374         | 10.65         |
+
+**Notes:**  
+- **BCER** — Batch Character Error Rate  
+- **BWER** — Batch Word Error Rate  
+- The fine-tuning process demonstrates rapid reduction of both character- and word-level errors, with final checkpoints yielding a stable, high-accuracy model.
+
 
 ## Acknowledgements
 
