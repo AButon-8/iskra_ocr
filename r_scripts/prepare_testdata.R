@@ -3,9 +3,9 @@
 library(tidyverse)
 
 # === 0. Пути к данным ===
-train_val_dir <- "/Users/anastasiabogdanova/R_directory/Iskra_ocr"
-source_dir <- "/Users/anastasiabogdanova/R_directory/orus_ground_truth_2"
-output_dir <- "/Users/anastasiabogdanova/R_directory/orus_test"
+train_val_dir <- "./Iskra_ocr"
+source_dir <- "./orus_ground_truth_2"
+output_dir <- "./orus_test"
 
 # === 1. Определяем последний использованный индекс в train/val ===
 train_val_files <- list.files(

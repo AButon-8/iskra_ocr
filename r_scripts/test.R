@@ -4,12 +4,15 @@ library(tidyverse)
 library(tesseract)
 library(stringdist)
 
+
 # --- Пути ---
-test_dir <- "/Users/anastasiabogdanova/R_directory/Iskra_ocr/test"
+test_dir <- "./Iskra_ocr/test"
+
 
 # --- Загружаем тестовые файлы ---
 images <- list.files(test_dir, pattern = "\\.png$", full.names = TRUE)
 text_paths <- list.files(test_dir, pattern = "\\.gt\\.txt$", full.names = TRUE)
+
 
 # Проверим, совпадает ли количество
 if (length(images) != length(text_paths)) {
@@ -25,12 +28,15 @@ if (length(images) != length(text_paths)) {
   if (length(missing_txts) > 0) cat("Нет текстов для:", paste(missing_txts, collapse = ", "), "\n")
 }
 
+
 # --- Считываем эталоны ---
 texts <- map_chr(text_paths, ~ readLines(.x, encoding = "UTF-8") |> paste(collapse = " "))
+
 
 # --- Регистрируем модели ---
 engine_rus <- tesseract("rus")
 engine_orus <- tesseract("orus", datapath = "/Users/anastasiabogdanova/R_directory/Iskra_ocr")
+
 
 # --- OCR для тестовых изображений ---
 test_data <- tibble(
@@ -40,10 +46,12 @@ test_data <- tibble(
   orus = map_chr(images, ~ tesseract::ocr(.x, engine = engine_orus) |> trimws())
 )
 
+
 # --- Нормализация текста ---
 test_data_norm <- test_data |>
   mutate(across(c(truth, rus, orus), ~ tolower(.x))) |>
   mutate(across(c(truth, rus, orus), ~ str_remove_all(.x, "[[:punct:]|<>]")))
+
 
 # --- Оценка точности на уровне "слов" (строк) ---
 word_stats_rus <- test_data_norm |>
@@ -57,6 +65,7 @@ word_stats_orus <- test_data_norm |>
 cat("\n=== Word-level accuracy ===\n")
 cat("rus model:", round(word_stats_rus$true_share * 100, 2), "%\n")
 cat("orus model:", round(word_stats_orus$true_share * 100, 2), "%\n")
+
 
 # --- Символьные расстояния и CER ---
 char_stats_orus <- test_data_norm |>
@@ -78,6 +87,7 @@ cat("Micro-CER:", round(cer_micro * 100, 2), "%\n")
 cat("Macro-CER:", round(cer_macro * 100, 2), "%\n")
 cat("Character Accuracy:", round(char_accuracy * 100, 2), "%\n")
 
+
 # --- Сохранение ---
 results_path <- file.path(test_dir, "test_metrics_orus.csv")
 
@@ -96,7 +106,6 @@ cat("\n✅ Метрики сохранены в:", results_path, "\n")
 
 
 # === Таблица с результатами ===
-
 results_table <- tibble(
   Metric = c("Micro-CER", "Macro-CER", "Character Accuracy", 
              "Word Accuracy (rus)", "Word Accuracy (orus)"),
@@ -118,6 +127,7 @@ results_table <- tibble(
 
 cat("\n=== Summary Table ===\n")
 print(results_table)
+
 
 # сохранить таблицу в CSV
 write_csv(results_table, file.path(test_dir, "test_metrics_table.csv"))
