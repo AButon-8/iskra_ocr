@@ -12,30 +12,32 @@ iskra_ocr/
 └── LICENSE                # License (Apache 2.0) / Лицензия
 ```
 
+
 ## Results
 
-### OCR Performance on Pre-Reform Texts
+### OCR Performance on Pre-Reform Texts (Test Set)
 
-| Metric                  | Value    | Description |
-|--------------------------|---------|-------------|
-| **Micro-CER**            | 1.94 %  | Average character error across the corpus |
-| **Macro-CER**            | 3.09 %  | Average character error per line |
-| **Character Accuracy**   | 98.06 % | Proportion of correctly recognized characters |
+| Model | Word Accuracy (%) | Micro-CER (%) | Macro-CER (%) | Char Accuracy (%) | WER (%) |
+|-------|-----------------|---------------|---------------|------------------|---------|
+| rus   | 61.2            | 9.45          | 13.0          | 90.6             | 69.9    |
+| orus  | 94.0            | 1.30          | 2.35          | 98.7             | 9.9     |
 
-These results indicate a significant improvement over the standard `rus` model for pre-reform orthography.
+These results indicate a significant improvement of the fine-tuned `orus` model over the standard `rus` model for pre-reform orthography.
 
 ### Training Progress
 
-| Stage                  | BCER (%)      | BWER (%)      |
-|------------------------|---------------|---------------|
-| Initial iterations     | 22.5 – 28.1   | 41 – 54.5     |
-| Mid checkpoints        | 4.2 – 5.4     | 8.6 – 10.6    |
-| Final iterations       | 5.374         | 10.65         |
+| Stage             | BCER (%)      | BWER (%)      |
+|------------------|---------------|---------------|
+| Initial iterations | 22.5 – 28.1  | 41 – 54.5     |
+| Mid checkpoints   | 4.2 – 5.4    | 8.6 – 10.6    |
+| Final iterations  | 5.374        | 10.65         |
 
-**Notes:**  
-- **BCER** — Batch Character Error Rate  
-- **BWER** — Batch Word Error Rate  
-- The fine-tuning process demonstrates rapid reduction of both character- and word-level errors, with final checkpoints yielding a stable, high-accuracy model.
+**Notes:**
+
+- BCER — Batch Character Error Rate  
+- BWER — Batch Word Error Rate  
+
+The fine-tuning process demonstrates rapid reduction of both character- and word-level errors, with final checkpoints yielding a stable, high-accuracy model.
 
 
 ## Acknowledgements
