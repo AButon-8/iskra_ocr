@@ -6,11 +6,13 @@ Fine-tuned on materials from the revolutionary social-democratic newspaper “Is
 ```plaintext
 iskra_ocr/
 ├── orus-ground-truth/     # Source images and ground-truth texts / Исходные изображения и эталонные тексты
-├── r_scripts/             # R scripts for training and validation / Скрипты для обучения и валидации модели
+├── r_scripts/             # R scripts for training, validation, and test set processing / Скрипты для обучения, валидации и подготовки тестовой выборки модели
 ├── orus.traineddata       # Fine-tuned Tesseract OCR model / Дообученная модель Tesseract
 ├── README.md              # Project description and metrics / Описание проекта и метрики
 └── LICENSE                # License (Apache 2.0) / Лицензия
 ```
+
+
 
 
 ## Results
